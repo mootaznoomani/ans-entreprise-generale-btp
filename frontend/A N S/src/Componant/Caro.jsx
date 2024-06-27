@@ -7,7 +7,8 @@ import Img3 from '../Assets/image3.jpeg'
 import Img4 from '../Assets/image4.jpg'
 function Caro() {
   return (
-    <Carousel slide={false}>
+    <div className='bg-[#BAAE98]'>
+      <Carousel slide={false}>
       <Carousel.Item>
         <ExampleCarouselImage text={Img1} />
         <Carousel.Caption>
@@ -37,6 +38,8 @@ function Caro() {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+    </div>
+    
   );
 }
 

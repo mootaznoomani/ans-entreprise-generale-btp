@@ -71,7 +71,7 @@ const Nav = () => {
         </div>
 
         {open && (
-          <div className="sm:hidden bg-[#607F79]" id="mobile-menu">
+          <div className="sm:hidden bg-[#BAAE98]" id="mobile-menu">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <a href="#accueil" className="nav-link block px-3 py-2 rounded-md text-base font-medium">ACCUEIL</a>
               <a href="#apropos" className="nav-link block px-3 py-2 rounded-md text-base font-medium">A PROPOS</a>
