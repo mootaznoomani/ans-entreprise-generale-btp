@@ -1,10 +1,34 @@
-import React from 'react';
+import React, { useRef } from 'react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faMapMarkerAlt, faClock } from '@fortawesome/free-solid-svg-icons';
 import Nav from "./Nav";
 import Footer from "./Footer";
 
 const Contact = () => {
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+    
+        formData.append("access_key", "b5a9fcc9-c8e3-452a-b975-82ca07aaf462");
+    
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+    
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: json
+        }).then((res) => res.json());
+    
+        if (res.success) {
+          console.log("Success", res);
+        }
+      };
+    const form = useRef();
   return (
     <div className="bg-[#baae98]">
       <Nav />
@@ -13,7 +37,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
           <div>
-            <form className="p-6 bg-white rounded-lg shadow-md">
+            <form ref={form} onSubmit={onSubmit} className="p-6 bg-white rounded-lg shadow-md">
               <div className="mb-4">
                 <label htmlFor="nom" className="block text-[#3b3127] text-lg font-semibold mb-2">Nom</label>
                 <input type="text" id="nom" name="nom" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#3b3127]" />
