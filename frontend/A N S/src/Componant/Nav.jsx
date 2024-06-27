@@ -41,7 +41,7 @@ const Nav = () => {
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 h-full">
           <div className="relative flex items-center justify-between h-full">
             <div className="flex items-center">
-              <img className="h-full w-20" src="/src/Assets/logo.png" alt="Logo" />
+              <img className="h-full w-20 mx-4" src="/src/Assets/logo.png" alt="Logo" />
             </div>
             <div className="hidden sm:block">
               <div className="flex space-x-4">
