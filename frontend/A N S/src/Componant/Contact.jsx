@@ -1,20 +1,21 @@
 import React, { useRef } from 'react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faMapMarkerAlt, faClock } from '@fortawesome/free-solid-svg-icons';
 import Nav from "./Nav";
 import Footer from "./Footer";
 
 const Contact = () => {
+    const form = useRef();
+
     const onSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
-    
-        formData.append("access_key", "b5a9fcc9-c8e3-452a-b975-82ca07aaf462");
-    
+
+        formData.append("access_key", "7c73d97a-77c4-4285-8e99-561b29a20e91");
+
         const object = Object.fromEntries(formData);
         const json = JSON.stringify(object);
-    
+
         const res = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: {
@@ -23,12 +24,17 @@ const Contact = () => {
           },
           body: json
         }).then((res) => res.json());
-    
+
         if (res.success) {
-          console.log("Success", res);
+          // Show a success message or alert
+          alert('Formulaire soumis avec succès !');
+          // Reset form fields if needed
+          form.current.reset();
+        } else {
+          alert("L'envoi du formulaire a échoué.");
         }
-      };
-    const form = useRef();
+    };
+
   return (
     <div className="bg-[#baae98]">
       <Nav />

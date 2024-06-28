@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate(); // Hook for navigation
 
   const toggleMenu = () => {
     setOpen(!open);
@@ -41,15 +43,15 @@ const Nav = () => {
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 h-full">
           <div className="relative flex items-center justify-between h-full">
             <div className="flex items-center">
-              <img className="h-full w-20 mx-4" src="/src/Assets/logo.png" alt="Logo" />
+              <img className="h-full w-20" src="/src/Assets/logo.png" alt="Logo" />
             </div>
             <div className="hidden sm:block">
               <div className="flex space-x-4">
-                <a href="#accueil" className="nav-link block px-3 py-2 rounded-md text-sm font-medium">ACCUEIL</a>
-                <a href="#apropos" className="nav-link block px-3 py-2 rounded-md text-sm font-medium">A PROPOS</a>
-                <a href="#services" className="nav-link block px-3 py-2 rounded-md text-sm font-medium">SERVICES</a>
-                <a href="#realisations" className="nav-link block px-3 py-2 rounded-md text-sm font-medium">NOS RÉALISATIONS</a>
-                <a href="#contact" className="nav-link block px-3 py-2 rounded-md text-sm font-medium">CONTACT</a>
+                <Link to="/" className="nav-link block px-3 py-2 rounded-md text-sm font-medium">ACCUEIL</Link>
+                <Link to="/propos" className="nav-link block px-3 py-2 rounded-md text-sm font-medium">A PROPOS</Link>
+                <Link to="/service" className="nav-link block px-3 py-2 rounded-md text-sm font-medium">SERVICES</Link>
+                <Link to="/realisation" className="nav-link block px-3 py-2 rounded-md text-sm font-medium">NOS RÉALISATIONS</Link>
+                <Link to="/contact" className="nav-link block px-3 py-2 rounded-md text-sm font-medium">CONTACT</Link>
               </div>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
@@ -73,11 +75,11 @@ const Nav = () => {
         {open && (
           <div className="sm:hidden bg-[#BAAE98]" id="mobile-menu">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <a href="#accueil" className="nav-link block px-3 py-2 rounded-md text-base font-medium">ACCUEIL</a>
-              <a href="#apropos" className="nav-link block px-3 py-2 rounded-md text-base font-medium">A PROPOS</a>
-              <a href="#services" className="nav-link block px-3 py-2 rounded-md text-base font-medium">SERVICES</a>
-              <a href="#realisations" className="nav-link block px-3 py-2 rounded-md text-base font-medium">NOS RÉALISATIONS</a>
-              <a href="#contact" className="nav-link block px-3 py-2 rounded-md text-base font-medium">CONTACT</a>
+              <Link to="/" className="nav-link block px-3 py-2 rounded-md text-base font-medium">ACCUEIL</Link>
+              <Link to="/propos" className="nav-link block px-3 py-2 rounded-md text-base font-medium">A PROPOS</Link>
+              <Link to="/service" className="nav-link block px-3 py-2 rounded-md text-base font-medium">SERVICES</Link>
+              <Link to="/realisations" className="nav-link block px-3 py-2 rounded-md text-base font-medium">NOS RÉALISATIONS</Link>
+              <Link to="/contact" className="nav-link block px-3 py-2 rounded-md text-base font-medium">CONTACT</Link>
             </div>
           </div>
         )}
