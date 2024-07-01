@@ -1,6 +1,6 @@
 // components/ExampleCarouselImage.js
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const CarouselImageContainer = styled.div`
   height: 720px;
@@ -30,7 +30,7 @@ const CarouselImageContainer = styled.div`
 const ExampleCarouselImage = ({ text }) => {
   return (
     <CarouselImageContainer>
-       <img src={text} alt="" className='h-full w-full' />
+      <img src={text} alt="" className="h-full w-full" />
     </CarouselImageContainer>
   );
 };
